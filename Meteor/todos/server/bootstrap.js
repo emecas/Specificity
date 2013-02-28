@@ -4,36 +4,36 @@ Meteor.startup(function () {
     var data = [
       {name: "Meteor Principles",
        contents: [
-         ["Data on the Wire", "Simplicity", "Better UX", "Fun"],
-         ["One Language", "Simplicity", "Fun"],
-         ["Database Everywhere", "Simplicity"],
-         ["Latency Compensation", "Better UX"],
-         ["Full Stack Reactivity", "Better UX", "Fun"],
-         ["Embrace the Ecosystem", "Fun"],
-         ["Simplicity Equals Productivity", "Simplicity", "Fun"]
+         ["Data on the Wire","0.1", "Simplicity", "Better UX", "Fun"],
+         ["One Language","0.1", "Simplicity", "Fun"],
+         ["Database Everywhere","0.1", "Simplicity"],
+         ["Latency Compensation","0.1", "Better UX"],
+         ["Full Stack Reactivity","0.1", "Better UX", "Fun"],
+         ["Embrace the Ecosystem","0.1", "Fun"],
+         ["Simplicity Equals Productivity","0.1", "Simplicity", "Fun"]
        ]
       },
       {name: "Languages",
        contents: [
-         ["Lisp", "GC"],
-         ["C", "Linked"],
-         ["C++", "Objects", "Linked"],
-         ["Python", "GC", "Objects"],
-         ["Ruby", "GC", "Objects"],
-         ["JavaScript", "GC", "Objects"],
-         ["Scala", "GC", "Objects"],
-         ["Erlang", "GC"],
-         ["6502 Assembly", "Linked"]
+         ["Lisp","0.2", "GC"],
+         ["C","0.2", "Linked"],
+         ["C++","0.2", "Objects", "Linked"],
+         ["Python","0.2", "GC", "Objects"],
+         ["Ruby","0.2", "GC", "Objects"],
+         ["JavaScript","0.2", "GC", "Objects"],
+         ["Scala","0.2", "GC", "Objects"],
+         ["Erlang","0.2", "GC"],
+         ["6502 Assembly","0.2", "Linked"]
          ]
       },
       {name: "Favorite Scientists",
        contents: [
-         ["Ada Lovelace", "Computer Science"],
-         ["Grace Hopper", "Computer Science"],
-         ["Marie Curie", "Physics", "Chemistry"],
-         ["Carl Friedrich Gauss", "Math", "Physics"],
-         ["Nikola Tesla", "Physics"],
-         ["Claude Shannon", "Math", "Computer Science"]
+         ["Ada Lovelace","0.3", "Computer Science"],
+         ["Grace Hopper", "0.3", "Computer Science"],
+         ["Marie Curie", "0.3", "Physics", "Chemistry"],
+         ["Carl Friedrich Gauss", "0.3", "Math", "Physics"],
+         ["Nikola Tesla", "0.3", "Physics"],
+         ["Claude Shannon", "0.3", "Math", "Computer Science"]
        ]
       }
     ];
@@ -45,8 +45,9 @@ Meteor.startup(function () {
         var info = data[i].contents[j];
         Todos.insert({list_id: list_id,
                       text: info[0],
+		      value: info[1],
                       timestamp: timestamp,
-                      tags: info.slice(1)});
+                      tags: info.slice(2)});
         timestamp += 1; // ensure unique timestamp.
       }
     }

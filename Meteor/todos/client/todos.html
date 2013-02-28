@@ -52,6 +52,7 @@
       {{else}}
         <div id="new-todo-box">
           <input type="text" id="new-todo" placeholder="New item" />
+	  <input type="text" id="new-todo-x" placeholder="x" />
         </div>
         <ul id="item-list">
           {{#each todos}}
@@ -68,12 +69,13 @@
     {{#if editing}}
       <div class="edit">
         <input id="todo-input" type="text" value="{{text}}" />
+	
       </div>
     {{else}}
       <div class="destroy"></div>
       <div class="display">
         <input class="check" name="markdone" type="checkbox" {{{done_checkbox}}} />
-        <div class="todo-text">{{text}}</div>
+        <div class="todo-text">{{text}} {{value}}</div>
       </div>
     {{/if}}
     <div class="item-tags">

@@ -8,6 +8,7 @@ Meteor.publish('lists', function () {
 
 
 // Todos -- {text: String,
+//           value: String
 //           done: Boolean,
 //           tags: [String, ...],
 //           list_id: String,
