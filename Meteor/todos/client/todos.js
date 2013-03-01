@@ -152,6 +152,7 @@ Template.todos.events(okCancelEvents(
       var tag = Session.get('tag_filter');
       Todos.insert({
         text: text,
+	value: '0.1',  
         list_id: Session.get('list_id'),
         done: false,
         timestamp: (new Date()).getTime(),

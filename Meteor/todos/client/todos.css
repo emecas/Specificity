@@ -201,6 +201,13 @@ h3 {
     top: -3px;
 }
 
+#todo-input-value {
+    width: 300px;
+    position: relative;
+    top: -3px;
+}
+
+
 #item-list .done .todo-text {
     text-decoration: line-through;
     color: #999;
