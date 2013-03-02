@@ -99,8 +99,9 @@ var okCancelEventsBtn = function (selector, callbacks) {
 	      document.getElementById("new-todo").value="";
 	      document.getElementById("new-todo-x").value="";
 	  }
-	  else
+	  else{    
 	      alert("el valor de X  debe ser decimal usando el formato 0.xzy");
+	  }
       }
     };
 
@@ -134,6 +135,10 @@ Template.lists.events({
     Session.set('editing_listname', this._id);
     Meteor.flush(); // force DOM redraw, so we can focus the edit field
     activateInput(tmpl.find("#list-name-input"));
+  },
+  'click .destroy': function () {
+      Lists.remove(this._id);
+      //alert("click destroy");
   }
 });
 

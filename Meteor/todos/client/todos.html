@@ -3,6 +3,11 @@
 </head>
 
 <body>
+
+  <div id="top-tag-calcule">
+    {{> tag_calcule}}
+  </div>
+
   <div id="top-tag-filter">
     {{> tag_filter}}
   </div>
@@ -23,14 +28,16 @@
   {{else}}
     <div id="lists">
       {{#each lists}}
+        <div class="destroy"> x</div>
         <div class="list {{selected}}">
           {{#if editing}}
             <div class="edit">
               <input class="list-name-input" id="list-name-input" type="text" value="{{name}}" />
             </div>
           {{else}}
-            <div class="display">
-              <a class="list-name {{name_class}}" href="/{{_id}}">
+	   
+            <div class="display">              
+	      <a class="list-name {{name_class}}" href="/{{_id}}">
                 {{name}}
               </a>
             </div>
@@ -108,5 +115,11 @@
         {{tag_text}} <span class="count">({{count}})</span>
       </div>
     {{/each}}
+  </div>
+</template>
+
+<template name="tag_calcule">
+  <div id="tag-calcule" class="tag-calcule">
+    <div class="label">Measures:</div>
   </div>
 </template>
