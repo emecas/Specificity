@@ -70,6 +70,40 @@ var okCancelEvents = function (selector, callbacks) {
   return events;
 };
 
+
+var okCancelEventsBtn = function (selector, callbacks) {
+  var ok = callbacks.ok || function () {};
+  var cancel = callbacks.cancel || function () {};
+
+  var events = {};
+  events['keyup '+selector+', keydown '+selector+', focusout '+selector+', click '+selector] =
+    function (evt) {
+      if (evt.type === "keydown" && evt.which === 27) {
+        // escape = cancel
+        cancel.call(this, evt);
+
+      } else if (evt.type === "keyup" && evt.which === 13 ||
+                 evt.type === "focusout") {
+        // blur/return/enter = ok/submit if non-empty
+        var value = String(evt.target.value || "");
+        if (value)
+          ok.call(this, value, evt);
+        else
+          cancel.call(this, evt);
+      } else if (evt.type === "click"){
+	  alert('Click');
+	  var name = document.getElementById("new-todo").value;
+	  var value = document.getElementById("new-todo-x").value;
+
+
+	  ok.call(this, name, value, evt);
+
+      }
+    };
+
+  return events;
+};
+
 var activateInput = function (input) {
   input.focus();
   input.select();
@@ -146,7 +180,7 @@ Template.todos.any_list_selected = function () {
 };
 
 Template.todos.events(okCancelEvents(
-  '#new-todo',
+  '#new-todo--',
   {
     ok: function (text, evt) {
       var tag = Session.get('tag_filter');
@@ -159,6 +193,23 @@ Template.todos.events(okCancelEvents(
         tags: tag ? [tag] : []
       });
       evt.target.value = '';
+    }
+  }));
+
+Template.todos.events(okCancelEventsBtn(
+  '#new-todo-btn',
+  {
+    ok: function (text,text2, evt) {
+      var tag = Session.get('tag_filter');
+      Todos.insert({
+        text: text,
+	value: text2,  
+        list_id: Session.get('list_id'),
+        done: false,
+        timestamp: (new Date()).getTime(),
+        tags: tag ? [tag] : []
+      });
+      //evt.target.value = '';
     }
   }));
 
@@ -247,6 +298,32 @@ Template.todo_item.events(okCancelEvents(
   }));
 
 Template.todo_item.events(okCancelEvents(
+  '#todo-input-value',
+  {
+    ok: function (value) {
+      Todos.update(this._id, {$set: {text: value}});
+      Session.set('editing_itemvalue', null);
+    },
+    cancel: function () {
+      Session.set('editing_itemvalue', null);
+    }
+  }));
+
+Template.todo_item.events(okCancelEventsBtn(
+  '#todo-btn',
+  {
+    ok: function (value) {
+      //Todos.update(this._id, {$set: {text: value}});
+      //Session.set('editing_itemname', null);
+	alert('ok');
+    },
+    cancel: function () {
+        Session.set('editing_itemname', null);
+	alert('cancel');
+    }
+  }));
+
+Template.todo_item.events(okCancelEvents(
   '#edittag-input',
   {
     ok: function (value) {
@@ -257,6 +334,8 @@ Template.todo_item.events(okCancelEvents(
       Session.set('editing_addtag', null);
     }
   }));
+
+
 
 ////////// Tag Filter //////////
 
