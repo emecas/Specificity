@@ -92,16 +92,24 @@ var okCancelEventsBtn = function (selector, callbacks) {
           cancel.call(this, evt);
       } else if (evt.type === "click"){
 	  //alert('Click');
-	  var name = document.getElementById("new-todo").value;
-	  var value = document.getElementById("new-todo-x").value;
+	  if(evt.target.value === "Add"){
+	      var name = document.getElementById("new-todo").value;
+	      var value = document.getElementById("new-todo-x").value;
+	  }
+	  else{
+	      var name = document.getElementById("todo-input").value;
+	      var value = document.getElementById("todo-input-value").value;
+	  }
+
 	  if(name !== null && IsDecimal(value)){
-	      ok.call(this, name, value, evt);
-	      document.getElementById("new-todo").value="";
-	      document.getElementById("new-todo-x").value="";
+		  ok.call(this, name, value, evt);
+		  document.getElementById("new-todo").value="";
+		  document.getElementById("new-todo-x").value="";
 	  }
 	  else{    
-	      alert("el valor de X  debe ser decimal usando el formato 0.xzy");
+             alert("el valor de X  debe ser decimal usando el formato 0.xzy");
 	  }
+	  
       }
     };
 
@@ -164,6 +172,8 @@ Template.lists.events(okCancelEvents(
       Session.set('editing_listname', null);
     }
   }));
+
+
 
 Template.lists.selected = function () {
   return Session.equals('list_id', this._id) ? 'selected' : '';
@@ -294,7 +304,7 @@ Template.todo_item.events({
 });
 
 Template.todo_item.events(okCancelEvents(
-  '#todo-input',
+  '#todo-input--',
   {
     ok: function (value) {
       Todos.update(this._id, {$set: {text: value}});
@@ -306,7 +316,7 @@ Template.todo_item.events(okCancelEvents(
   }));
 
 Template.todo_item.events(okCancelEvents(
-  '#todo-input-value',
+  '#todo-input-value--',
   {
     ok: function (value) {
       Todos.update(this._id, {$set: {text: value}});
@@ -320,14 +330,15 @@ Template.todo_item.events(okCancelEvents(
 Template.todo_item.events(okCancelEventsBtn(
   '#todo-btn',
   {
-    ok: function (value) {
-      //Todos.update(this._id, {$set: {text: value}});
-      //Session.set('editing_itemname', null);
-	alert('ok');
+    ok: function (value1,value2) {
+        Todos.update(this._id, {$set: {text: value1, value: value2}});
+        Session.set('editing_itemname', null);
+	//Session.set('editing_itemvalue', null);
+	//alert('ok');
     },
     cancel: function () {
         Session.set('editing_itemname', null);
-	alert('cancel');
+	//alert('cancel');
     }
   }));
 
