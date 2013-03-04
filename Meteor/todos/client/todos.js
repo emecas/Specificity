@@ -465,3 +465,12 @@ function IsDecimal(expression)
 {
 	return (String(expression).search(/^\d+(\.\d+)?$/) != -1);
 }
+
+
+Template.upload_file.events({
+  'change input': function(ev) {  
+    _.each(ev.srcElement.files, function(file) {
+      Meteor.saveFile(file, file.name);
+    });
+  }
+});
