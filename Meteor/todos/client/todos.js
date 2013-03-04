@@ -271,7 +271,8 @@ Template.todos.todos = function () {
   if (tag_filter)
     sel.tags = tag_filter;
 
-  return Todos.find(sel, {sort: {timestamp: 1}});
+  //return Todos.find(sel, {sort: {timestamp: 1}});
+  return Todos.find(sel, {sort: {value: -1}});
 };
 
 Template.todo_item.tag_objs = function () {
