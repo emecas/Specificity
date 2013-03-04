@@ -235,10 +235,12 @@ Template.todos.events(okCancelEventsBtn(
       var tt1 = Todos.find({list_id: lid}, {sort: {value: -1}});	
       var tt2  = Todos.find({list_id: lid});
       var tt3 = Todos.find({}, {sort: {value: -1}});
+      
+      var value = parseFloat(text2);
 
       Todos.insert({
         text: text,
-	value: text2,  
+	value: value,  
         list_id: Session.get('list_id'),
         done: false,
         timestamp: (new Date()).getTime(),
@@ -356,7 +358,8 @@ Template.todo_item.events(okCancelEventsBtn(
   '#todo-btn',
   {
     ok: function (value1,value2) {
-        Todos.update(this._id, {$set: {text: value1, value: value2}});
+        var valuef = parseFloat(value2);
+        Todos.update(this._id, {$set: {text: value1, value: valuef}});
         Session.set('editing_itemname', null);
 	//Session.set('editing_itemvalue', null);
 	//alert('ok');

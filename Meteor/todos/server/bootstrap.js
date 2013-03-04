@@ -33,7 +33,7 @@ Meteor.startup(function () {
          ["Marie Curie", 0.31, "Physics", "Chemistry"],
          ["Carl Friedrich Gauss", 0.33, "Math", "Physics"],
          ["Nikola Tesla", 0.23, "Physics"],
-         ["Claude Shannon", 0.23, "Math", "Computer Science"]
+         ["Claude Shannon", 0.231, "Math", "Computer Science"]
        ]
       }
     ];
