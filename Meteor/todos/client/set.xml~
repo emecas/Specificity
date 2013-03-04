@@ -130,6 +130,14 @@ h3 {
     margin-right: 8px;
 }
 
+#tag-calcule .up {
+    float: right;
+    margin-top: 9px;
+    margin-left: 12px;
+    margin-right: 8px;
+}
+
+
 
 #tag-filter .tag {
     margin-top: 10px;

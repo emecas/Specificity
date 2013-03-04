@@ -62,6 +62,7 @@
 	  <input type="text" id="new-todo-x" placeholder="x" />
 	   <input id="new-todo-btn" type="button" value="Add" />
         </div>
+        <!--div class="uf">{{> upload_file}}</div -->
         <ul id="item-list">
           {{#each todos}}
             {{> todo_item}}
@@ -121,9 +122,10 @@
 <template name="tag_calcule">
   <div id="tag-calcule" class="tag-calcule">
     <div class="label">Measures:</div>
+    <div class="uf">{{> upload_file}}</div>
   </div>
 </template>
 
 <template name="upload_file">
-  <input type=file />
+  Import Elements<input type=file />
 </template>

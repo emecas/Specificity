@@ -25,7 +25,7 @@ Meteor.saveFile = function(blob, name, path, type, callback) {
       break;
   }
   fileReader.onload = function(file) {
-    Meteor.call('saveFile', file.srcElement.result, name, path, encoding, callback);
+    Meteor.call('saveFile', file.srcElement.result, name, path, encoding,Session.get('list_id'), callback);
   }
   fileReader[method](blob);
 }

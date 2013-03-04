@@ -1,0 +1,19 @@
+<set>
+  nada
+  <item>		
+    <name>AA</name>
+    <value>0.2</value>
+  </item>
+  <item>		
+    <name>BB</name>
+    <value>0.3</value>
+  </item>
+  <item>		
+    <name>CC</name>
+    <value>0.4</value>
+  </item>
+  <item>		
+    <name>DD</name>
+    <value>0.05</value>
+  </item>
+</set>
