@@ -8,7 +8,7 @@ Meteor.publish('lists', function () {
 
 
 // Todos -- {text: String,
-//           value: String
+//           value: Number
 //           done: Boolean,
 //           tags: [String, ...],
 //           list_id: String,
@@ -17,6 +17,8 @@ Todos = new Meteor.Collection("todos");
 
 // Publish all items for requested list_id.
 Meteor.publish('todos', function (list_id) {
-  return Todos.find({list_id: list_id});
+//alert("pub");  
+return Todos.find({list_id: list_id}, {sort: {value: -1}});
+
 });
 

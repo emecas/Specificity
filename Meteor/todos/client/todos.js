@@ -33,8 +33,11 @@ var todosHandle = null;
 // Always be subscribed to the todos for the selected list.
 Meteor.autorun(function () {
   var list_id = Session.get('list_id');
-  if (list_id)
+  if (list_id){
     todosHandle = Meteor.subscribe('todos', list_id);
+    //alert("... "+todosHandle);
+    //todosHandle.find(list_id,{value:-1});
+  }
   else
     todosHandle = null;
 });
@@ -103,6 +106,8 @@ var okCancelEventsBtn = function (selector, callbacks) {
 
 	  if(name !== null && IsDecimal(value)){
 		  ok.call(this, name, value, evt);
+
+
 		  document.getElementById("new-todo").value="";
 		  document.getElementById("new-todo-x").value="";
 	  }
@@ -202,6 +207,9 @@ Template.todos.events(okCancelEvents(
   {
     ok: function (text, evt) {
       var tag = Session.get('tag_filter');
+
+      
+
       Todos.insert({
         text: text,
 	value: '0.1',  
@@ -219,6 +227,15 @@ Template.todos.events(okCancelEventsBtn(
   {
     ok: function (text,text2, evt) {
       var tag = Session.get('tag_filter');
+
+
+      alert(Session.get('list_id'));
+ 
+      var lid = Session.get('list_id');	
+      var tt1 = Todos.find({list_id: lid}, {sort: {value: -1}});	
+      var tt2  = Todos.find({list_id: lid});
+      var tt3 = Todos.find({}, {sort: {value: -1}});
+
       Todos.insert({
         text: text,
 	value: text2,  
@@ -227,6 +244,14 @@ Template.todos.events(okCancelEventsBtn(
         timestamp: (new Date()).getTime(),
         tags: tag ? [tag] : []
       });
+
+      var lid = Session.get('list_id');	
+
+      var t = Todos.find({list_id: lid}, {sort: {value: -1}});
+      alert(t);
+ 
+      //Todos.find().sort( {value: -1});
+	
       //evt.target.value = '';
     }
   }));
@@ -408,10 +433,14 @@ var TodosRouter = Backbone.Router.extend({
     if (oldList !== list_id) {
       Session.set("list_id", list_id);
       Session.set("tag_filter", null);
+      //alert("A");	
     }
+    //else  
+    // alert("C");
   },
   setList: function (list_id) {
     this.navigate(list_id, true);
+      //alert("B");
   }
 });
 

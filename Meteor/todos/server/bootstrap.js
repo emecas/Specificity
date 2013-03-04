@@ -4,36 +4,36 @@ Meteor.startup(function () {
     var data = [
       {name: "Meteor Principles",
        contents: [
-         ["Data on the Wire","0.1", "Simplicity", "Better UX", "Fun"],
-         ["One Language","0.1", "Simplicity", "Fun"],
-         ["Database Everywhere","0.1", "Simplicity"],
-         ["Latency Compensation","0.1", "Better UX"],
-         ["Full Stack Reactivity","0.1", "Better UX", "Fun"],
-         ["Embrace the Ecosystem","0.1", "Fun"],
-         ["Simplicity Equals Productivity","0.1", "Simplicity", "Fun"]
+         ["Data on the Wire",0.1, "Simplicity", "Better UX", "Fun"],
+         ["One Language",0.2, "Simplicity", "Fun"],
+         ["Database Everywhere",0.3, "Simplicity"],
+         ["Latency Compensation",0.4, "Better UX"],
+         ["Full Stack Reactivity",0.5, "Better UX", "Fun"],
+         ["Embrace the Ecosystem",0.6, "Fun"],
+         ["Simplicity Equals Productivity",0.7, "Simplicity", "Fun"]
        ]
       },
       {name: "Languages",
        contents: [
-         ["Lisp","0.2", "GC"],
-         ["C","0.2", "Linked"],
-         ["C++","0.2", "Objects", "Linked"],
-         ["Python","0.2", "GC", "Objects"],
-         ["Ruby","0.2", "GC", "Objects"],
-         ["JavaScript","0.2", "GC", "Objects"],
-         ["Scala","0.2", "GC", "Objects"],
-         ["Erlang","0.2", "GC"],
-         ["6502 Assembly","0.2", "Linked"]
+         ["Lisp",0.21, "GC"],
+         ["C",0.22, "Linked"],
+         ["C++",0.23, "Objects", "Linked"],
+         ["Python",0.32, "GC", "Objects"],
+         ["Ruby",0.42, "GC", "Objects"],
+         ["JavaScript",0.432, "GC", "Objects"],
+         ["Scala",0.442, "GC", "Objects"],
+         ["Erlang",0.52, "GC"],
+         ["6502 Assembly",0.62, "Linked"]
          ]
       },
       {name: "Favorite Scientists",
        contents: [
-         ["Ada Lovelace","0.3", "Computer Science"],
-         ["Grace Hopper", "0.3", "Computer Science"],
-         ["Marie Curie", "0.3", "Physics", "Chemistry"],
-         ["Carl Friedrich Gauss", "0.3", "Math", "Physics"],
-         ["Nikola Tesla", "0.3", "Physics"],
-         ["Claude Shannon", "0.3", "Math", "Computer Science"]
+         ["Ada Lovelace",0.3, "Computer Science"],
+         ["Grace Hopper", 0.3, "Computer Science"],
+         ["Marie Curie", 0.31, "Physics", "Chemistry"],
+         ["Carl Friedrich Gauss", 0.33, "Math", "Physics"],
+         ["Nikola Tesla", 0.23, "Physics"],
+         ["Claude Shannon", 0.23, "Math", "Computer Science"]
        ]
       }
     ];
