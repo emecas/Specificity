@@ -35,6 +35,15 @@ Meteor.startup(function () {
          ["Nikola Tesla", 0.23, "Physics"],
          ["Claude Shannon", 0.231, "Math", "Computer Science"]
        ]
+      },
+      {name: "TEST SET ABC",
+       contents: [
+         ["A",0.5, "Vocal"],
+         ["B", 0.3, "Letra"],
+         ["C", 0.231, "Letra"],
+         ["D", 0.15, "Letra"],
+         ["E",0.05, "Vocal"],
+       ]
       }
     ];
 
