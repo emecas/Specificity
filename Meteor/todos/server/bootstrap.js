@@ -38,11 +38,17 @@ Meteor.startup(function () {
       },
       {name: "TEST SET ABC",
        contents: [
+<<<<<<< HEAD
          ["A",0.5, "Vocal"],
          ["B", 0.3, "Letra"],
          ["C", 0.231, "Letra"],
          ["D", 0.15, "Letra"],
          ["E",0.05, "Vocal"],
+=======
+         ["A",0.3, "Vocal"],
+         ["B", 0.3, "Letra"],
+         ["C", 0.231, "Letra"]
+>>>>>>> origin/master
        ]
       }
     ];
