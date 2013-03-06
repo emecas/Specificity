@@ -229,7 +229,7 @@ Template.todos.events(okCancelEventsBtn(
       var tag = Session.get('tag_filter');
 
 
-      alert(Session.get('list_id'));
+      //alert(Session.get('list_id'));
  
       var lid = Session.get('list_id');	
       var tt1 = Todos.find({list_id: lid}, {sort: {value: -1}});	
@@ -250,7 +250,7 @@ Template.todos.events(okCancelEventsBtn(
       var lid = Session.get('list_id');	
 
       var t = Todos.find({list_id: lid}, {sort: {value: -1}});
-      alert(t);
+      //alert(t);
  
       //Todos.find().sort( {value: -1});
 	
