@@ -16,4 +16,8 @@
     <name>DD</name>
     <value>0.05</value>
   </item>
+ <item>
+  <name>EE</name>
+    <value>0.0</value>
+  </item>
 </set>
